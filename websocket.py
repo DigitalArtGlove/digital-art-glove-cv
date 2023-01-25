@@ -7,11 +7,11 @@ import time
 import functools
 
 async def echo(queue, websocket):
-    print("enter")
+    # print("enter")
     while True and websocket.open:
         message = await queue.get()
         await websocket.send(message)
-    print("exit")
+    # print("exit")
 
 async def start_socket(queue):
     print("Start socket")
@@ -43,10 +43,11 @@ def blocking(loop, queue):
                 for id, lm in enumerate(handLms.landmark):
                     #print(id,lm)
                     h, w, c = img.shape
-                    cx, cy = int(lm.x *w), int(lm.y*h)
+                    cx, cy = int(lm.x *100), int(lm.y*100)
                     if id == 8:
-                        cv2.circle(img, (cx,cy), 3, (255,0,255), cv2.FILLED)
-                        cv2.line(img, (0,0), (cx,cy), (255,0,255), 3)
+                        # to get the purple line that tracks the index finger, uncomment the following two lines
+                        # cv2.circle(img, (cx,cy), 3, (255,0,255), cv2.FILLED)
+                        # cv2.line(img, (0,0), (cx,cy), (255,0,255), 3)
                         # print(cx, cy)
                         message = str(cx)+' '+str(cy)
                         # print(message)
