@@ -33,7 +33,8 @@ def blocking(loop, queue):
     cTime = 0
 
     while True:
-        success, img = cap.read()
+        success, img = cv2.flip(cap).read()
+        img = cv2.flip(img, 1)
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results = hands.process(imgRGB)
         #print(results.multi_hand_landmarks)
