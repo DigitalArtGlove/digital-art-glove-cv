@@ -20,7 +20,7 @@ while True:
     img = cv2.flip(img, 1)
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
-    #print(results.multi_hand_landmarks)
+    # print(results.multi_hand_landmarks)
 
     if results.multi_hand_landmarks:
         for handLms in results.multi_hand_landmarks:
