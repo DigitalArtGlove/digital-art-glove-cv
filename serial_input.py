@@ -14,12 +14,13 @@ if not ser.is_open:
 
 async def handler(websocket, path):
     print("open socket")
+    sensor_data = ""
 
     while True and websocket.open and ser.open:
         msg = ser.readline().decode()
         if (msg != ""):
             sensor_data = msg
-            # print(sensor_data)
+            print(sensor_data)
         
         await websocket.send(sensor_data)
 
