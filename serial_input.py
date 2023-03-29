@@ -18,10 +18,11 @@ async def handler(websocket, path):
     while True and websocket.open and ser.open:
         msg = ser.readline().decode()
         if (msg != ""):
-            sensor_data = msg
-            # print(sensor_data)
-        
-        await websocket.send(sensor_data)
+            print(msg)
+            await websocket.send(msg)
+
+
+       
 
 async def main():
     async with websockets.serve(handler, "localhost", 8766):
