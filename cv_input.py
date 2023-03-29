@@ -11,7 +11,8 @@ async def handler(websocket, path):
                         min_detection_confidence=0.5,
                         min_tracking_confidence=0.5)
     mpDraw = mp.solutions.drawing_utils
-    cap = cv2.VideoCapture(0) 
+    cap = cv2.VideoCapture(0)
+    coordRes = pow(2,10) 
     # use VideoCapture(0) to use local (built in) webcam
     # cap = cv2.VideoCapture(1) # use VideoCapture(1) to use a USB webcam
 
@@ -27,7 +28,7 @@ async def handler(websocket, path):
                 for id, lm in enumerate(handLms.landmark):
                     #print(id,lm)
                     h, w, c = img.shape
-                    cx, cy = int(lm.x *100), int(lm.y*100)
+                    cx, cy = int(lm.x *coordRes), int(lm.y*coordRes)
                     if id == 8:
                         # to get the purple line that tracks the index finger, uncomment the following two lines
                         # cv2.circle(img, (cx,cy), 3, (255,0,255), cv2.FILLED)
