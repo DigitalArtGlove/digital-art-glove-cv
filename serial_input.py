@@ -20,7 +20,7 @@ async def handler(websocket, path):
         msg = ser.readline().decode()
         if (msg != ""):
             sensor_data = msg
-            print(sensor_data)
+            # print(sensor_data)
         
         await websocket.send(sensor_data)
 
