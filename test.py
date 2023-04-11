@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 
-cap = cv2.VideoCapture(1) # use VideoCapture(0) to use local (built in) webcam
+cap = cv2.VideoCapture(0) # use VideoCapture(0) to use local (built in) webcam
 # cap = cv2.VideoCapture(1) # use VideoCapture(1) to use a USB webcam
 
 mpHands = mp.solutions.hands

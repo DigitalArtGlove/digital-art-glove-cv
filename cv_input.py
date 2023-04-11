@@ -12,7 +12,8 @@ async def handler(websocket, path):
                         min_detection_confidence=0.5,
                         min_tracking_confidence=0.5)
     mpDraw = mp.solutions.drawing_utils
-
+    cap = cv2.VideoCapture(0)
+    coordRes = pow(2,10) 
     # use VideoCapture(0) to use local (built in) webcam
     # use VideoCapture(1) to use a USB webcam
     cap = cv2.VideoCapture(0) 
