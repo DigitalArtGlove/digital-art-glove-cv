@@ -2,7 +2,8 @@
 
 Hi welcome to the cv side of the digital art glove!
 
-To get the CV up and started just run `python websocket.py` in this folder.
+To get the CV up and started just run `python cv_input.py` in this folder.
+To get the ESP32 connect, run `python serial_input.py` in this folder.
 
 This should start the CV script and send the position data to a websocket that the UI can read from.
 
